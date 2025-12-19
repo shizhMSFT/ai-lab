@@ -1,0 +1,17 @@
+name: Manual Copilot Run
+
+on:
+  workflow_dispatch:
+    inputs:
+      prompt:
+        description: 'Prompt to pass to copilot'
+        required: true
+        default: 'hello'
+
+jobs:
+  run-copilot:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Run copilot command
+        run: copilot -p "${{ github.event.inputs.prompt }}"
